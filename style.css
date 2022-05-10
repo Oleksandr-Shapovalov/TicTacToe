@@ -1,0 +1,80 @@
+:root {
+  --width: 360px;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent 1px);
+  background-size: 30px 30px;
+}
+
+.res {
+  color: rgba(12, 65, 12, 0.808);
+  font-weight: 700;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 50px;
+}
+
+.game {
+  width: var(--width);
+  height: var(--width);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px 0;
+  outline: 3px solid black;
+  transition: all 0.2s ease-in-out;
+}
+.field {
+  width: calc(var(--width) / 3);
+  height: calc(var(--width) / 3);
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.new_game {
+  display: inline-block;
+  color: rgba(29, 28, 28, 0.897);
+  background: transparent;
+  font-size: 30px;
+  padding: 10px 16px;
+  border: 2px solid #1d1c1cc4;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+.active {
+  background: rgba(111, 221, 111, 0.3);
+}
+.circle {
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  animation: draw 1s ease-in-out forwards;
+}
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.cross {
+  width: 100%;
+  height: 100%;
+}
+.first,
+.second {
+  stroke-dasharray: 128;
+  stroke-dashoffset: 128;
+}
+.first {
+  animation: draw 0.5s ease-in-out forwards;
+}
+.second {
+  animation: draw 0.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
