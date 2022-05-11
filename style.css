@@ -24,6 +24,7 @@
 .sound {
   transition: all 0.2s ease-in-out;
   color: rgba(29, 28, 28, 0.897);
+  cursor: pointer;
 }
 .sound span {
   transition: all 0.2s ease-in-out;
