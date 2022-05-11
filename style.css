@@ -13,14 +13,27 @@
   background-size: 30px 30px;
 }
 
-.res {
+.res,
+.sound {
   color: rgba(12, 65, 12, 0.808);
   font-weight: 700;
   font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
   height: 50px;
 }
-
+.sound {
+  transition: all 0.2s ease-in-out;
+  color: rgba(29, 28, 28, 0.897);
+}
+.sound span {
+  transition: all 0.2s ease-in-out;
+}
+.on {
+  color: rgba(106, 228, 106, 0.877);
+}
+.off {
+  color: rgb(206, 102, 102);
+}
 .game {
   width: var(--width);
   height: var(--width);

@@ -1,9 +1,12 @@
 const game = document.querySelector(".game");
 const res = document.querySelector(".res");
+const sound = document.querySelector(".sound");
+const soundSpan = document.querySelector(".sound span");
 const btnGame = document.querySelector(".new_game");
 const fields = [...document.querySelectorAll(".field")];
 step = false;
 let count = 0;
+isSound = false;
 const circle = ` <svg class="circle">
           <circle
             r="45"
@@ -42,8 +45,10 @@ const cross = ` <svg class="cross">
 
 function stepCross(target) {
   if (!target.innerHTML) {
-    const crossAudio = new Audio("audio/cross.mp3");
-    crossAudio.play();
+    if (isSound) {
+      const crossAudio = new Audio("audio/cross.mp3");
+      crossAudio.play();
+    }
     target.innerHTML = cross;
     target.classList.add("x");
     count++;
@@ -51,8 +56,10 @@ function stepCross(target) {
 }
 function stepZero(target) {
   if (!target.innerHTML) {
-    const zeroAudio = new Audio("audio/zero.mp3");
-    zeroAudio.play();
+    if (isSound) {
+      const zeroAudio = new Audio("audio/zero.mp3");
+      zeroAudio.play();
+    }
     target.innerHTML = circle;
     target.classList.add("o");
     count++;
@@ -127,3 +134,10 @@ function win() {
 
 btnGame.addEventListener("click", newGame);
 game.addEventListener("click", init);
+sound.addEventListener("click", () => {
+  isSound = !isSound;
+  soundSpan.classList.toggle("on");
+  soundSpan.classList.toggle("off");
+  if (isSound) soundSpan.textContent = "On";
+  else soundSpan.textContent = "Off";
+});
